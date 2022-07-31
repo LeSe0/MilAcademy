@@ -37,7 +37,8 @@ export default function initTypography(theme: Theme): Typography {
     body1: {
       ...theme.typography.body1,
       fontSize: 16,
-      fontWeight: 500,
+      fontWeight: 400,
+      lineHeight: 3,
       color: theme.palette.text.primary,
       [theme.breakpoints.down("sm")]: {
         fontSize: 14

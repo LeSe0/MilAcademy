@@ -7,6 +7,7 @@ import { Grid, Typography } from "@mui/material";
 import logo from "@images/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const navbar: { title: string; path: string }[] = [
   {
@@ -32,6 +33,8 @@ const navbar: { title: string; path: string }[] = [
 ];
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <Grid
       component="header"
@@ -47,7 +50,7 @@ const Header = () => {
       </Link>
       <Grid container flex={1} justifyContent="space-between">
         {navbar.map(el => (
-          <Typography key={el.title}>
+          <Typography key={el.title} variant="body1" sx={{ fontWeight: router.pathname === el.path ? "bold" : 400 }}>
             <Link href={el.path}>{el.title}</Link>
           </Typography>
         ))}
