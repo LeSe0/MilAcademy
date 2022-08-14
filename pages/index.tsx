@@ -5,8 +5,8 @@ import { Grid, Typography } from "@mui/material";
 
 const Home: NextPage = () => {
   return (
-    <Grid container sx={{ bgcolor: "primary.main" }}>
-      <Typography>Գլխավոր</Typography>
+    <Grid container>
+      <Typography color="primary">Գլխավոր</Typography>
     </Grid>
   );
 };
