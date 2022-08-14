@@ -38,6 +38,7 @@ const PageBanner = () => {
         sx={{
           backgroundImage: `url(${back.src})`,
           width: "100vw",
+          overflow: "hidden",
           px: "9.896vw",
           position: "relative",
           backgroundRepeat: "no-repeat",
@@ -53,6 +54,7 @@ const PageBanner = () => {
             background: "rgba(0, 0, 0, 0.8)",
             pl: 16.25,
             pr: "9.896vw",
+            py: "5vh",
             width: "max-content",
             mt: "auto"
           }}
