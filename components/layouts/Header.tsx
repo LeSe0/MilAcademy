@@ -1,7 +1,7 @@
 import React from "react";
 
 //components
-import { Grid } from "@mui/material";
+import { Grid, Hidden } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ import { navbar } from "routes";
 
 //images
 import logo from "@images/logo.svg";
-import { Navbar } from "components/header";
+import { Navbar, BurgerMenu } from "components/header";
 
 const Header = () => {
   return (
@@ -19,14 +19,20 @@ const Header = () => {
       container
       bgcolor={theme => theme.palette.primary.main}
       alignItems="center"
-      px="10vw"
+      px={{ xs: "10vw", lg: "9vw", xl: "10vw" }}
       py={2}
       columnGap="5.5vw"
+      justifyContent={{ xs: "space-between", lg: "unset" }}
     >
       <Link href="/">
         <Image src={logo} alt="logo icon" />
       </Link>
-      <Navbar navbar={navbar} />
+      <Hidden lgUp>
+        <BurgerMenu />
+      </Hidden>
+      <Hidden lgDown>
+        <Navbar navbar={navbar} />
+      </Hidden>
     </Grid>
   );
 };
