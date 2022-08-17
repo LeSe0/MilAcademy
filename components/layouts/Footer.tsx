@@ -15,6 +15,11 @@ const Footer = () => {
       px={{ xs: "5vw", lg: "8vw", xl: "9vw" }}
       flexDirection={{ xs: "column-reverse", md: "unset" }}
       py="6vh"
+      sx={{
+        "& p, h1, h2, h3": {
+          fontFamily: "MontserratArm"
+        }
+      }}
     >
       <Grid item md={6} xl={5}>
         <Typography variant="h1">Հետադարձ կապ</Typography>

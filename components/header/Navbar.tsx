@@ -20,7 +20,13 @@ export default function Navbar({ navbar }: Props) {
         <Grid item key={el.title}>
           <Typography
             variant="body1"
-            sx={{ fontWeight: router.pathname === el.path ? "bold" : 400, fontSize: "0.8vw", fontFamily: "MontserratArm" }}
+            sx={{
+              fontWeight: router.pathname === el.path ? "bold" : 400,
+              fontSize: "0.8vw",
+              fontFamily: "MontserratArm",
+              transition: "0.5s",
+              cursor: "pointer"
+            }}
           >
             <Link href={el.path}>{el.title}</Link>
           </Typography>
