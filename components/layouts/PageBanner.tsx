@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useRouter } from "next/router";
 
-import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
+import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 
 import back from "@images/home-back.png";
 import chat from "@images/chat.svg";
