@@ -24,6 +24,7 @@ export interface IMainPartData {
   image: StaticImageData;
   title: string;
   content: string;
+  path: string;
 }
 
 export const NewsData: INews[] = [
@@ -526,16 +527,24 @@ export const MainPartsData: IMainPartData[] = [
     title: "Մեր առօրյան",
     content: `- Սպորտ<br />
     - Մշակույթ և ժամանց <br />
-    - Կացության պայմաններ`
+    - Կացության պայմաններ`,
+    path: "/ourDailyLife"
   },
   {
     image: MainPartImage,
     title: "Կրթություն",
-    content: "Ռազմական կրթություն"
+    content: `- Ռազմական կրթություն <br />
+		- Համալսարանական կրթություն <br />
+		- Դիմորդ`,
+    path: "/education"
   },
   {
     image: MainPartImage,
     title: "Մեր մասին",
-    content: "Ուսումնական ծրագրեր"
+    content: `-  Ուսումնական ծրագրեր </br>
+    - Մասնաշենքեր </br>
+    - Ապագայի պլանների և բարեփոխումների
+    հատված`,
+    path: "/about"
   }
 ];
