@@ -46,13 +46,13 @@ const PageBanner = () => {
         pt={5}
         alignContent="space-between"
         sx={{
-          backgroundImage: `url(${pagesInfo[router.pathname].backgroundImg.src})`,
+          backgroundImage: `url(${pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src})`,
           width: "100%",
           overflow: "hidden",
           position: "relative",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          minHeight: "55.5vh",
+          minHeight: { xs: "30vh", md: "55.5vh" },
           px: { xs: 0, md: "9.896vw" },
           "& h1": {
             fontFamily: "MontserratArm"

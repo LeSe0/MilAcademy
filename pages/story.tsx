@@ -1,12 +1,18 @@
-import { Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import mainImage from "@images/story/storyMainImage.png";
 import Image from "next/image";
 import { storyImageSlider } from "src/constant/data";
+import Slider, { Settings } from "react-slick";
+import CustomSlider from "components/common/slider/Slider";
 
 type Props = {};
 
-export default function story({}: Props) {
+export default function StoryPage({}: Props) {
+  const customSettings: Settings = {
+    arrows: true
+  };
+
   return (
     <Stack>
       <Stack px="10vw" my="100px" spacing={6}>
@@ -24,7 +30,16 @@ export default function story({}: Props) {
           Հայաստանի Հանրապետության և Արցախի Հանրապետության ազգային հերոս, Սպարապետ Վազգեն Սարգսյանի անունով:
         </Typography>
       </Stack>
-      <Image src={mainImage} alt="" />
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: { xs: "300px", sm: "400px", xl: "800px" },
+          backgroundImage: `url(${mainImage.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      />
       <Stack px="10vw" spacing={6} my="100px">
         <Typography variant="h3" color="black">
           2001թ-ից Ռազմական ինստիտուտն անցել է երկու՝ մոտոհրաձգային և հրետանային մասնագիտություններով սպայական կադրերի
@@ -45,6 +60,27 @@ export default function story({}: Props) {
           նախարարության «Վազգեն Սարգսյանի անվան ռազմական համալսարան» պետական հիմնարկ:
         </Typography>
       </Stack>
+      <Box
+        position="relative"
+        px={{ xs: 0, sm: "10vw" }}
+        mb="100px"
+        sx={{
+          pb: { xs: "100px", md: 0 },
+          "& .slick-slider": {
+            px: { xs: 0, md: "120px" }
+          }
+        }}
+      >
+        <CustomSlider {...customSettings}>
+          {storyImageSlider.map((el, i) => {
+            return (
+              <Box display="flex !important" justifyContent="center" key={i}>
+                <Image src={el} alt="" />
+              </Box>
+            );
+          })}
+        </CustomSlider>
+      </Box>
     </Stack>
   );
 }

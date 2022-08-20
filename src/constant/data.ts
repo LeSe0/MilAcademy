@@ -8,7 +8,7 @@ import AboutNews2 from "@images/AboutNews2.png";
 import AboutNews3 from "@images/AboutNews3.png";
 import AboutNews4 from "@images/AboutNews4.png";
 import MainPartImage from "@images/MainPartImage.png";
-import StorySliderImage from "@images/storySliderImage.png";
+import StorySliderImage from "@images/story/storySliderImage.png";
 
 export interface INews {
   title: string;
