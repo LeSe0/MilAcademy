@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { useRouter } from "next/router";
 
-import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
+import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 
 import back from "@images/home-back.png";
 import chat from "@images/chat.svg";
@@ -37,32 +37,49 @@ const PageBanner = () => {
         alignContent="space-between"
         sx={{
           backgroundImage: `url(${back.src})`,
-          width: "100vw",
+          width: "100%",
           overflow: "hidden",
-          px: "9.896vw",
           position: "relative",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          minHeight: "55.5vh"
+          minHeight: "55.5vh",
+          px: { xs: 0, md: "9.896vw" },
+          "& h1": {
+            fontFamily: "MontserratArm"
+          }
         }}
       >
-        <Typography variant="h1">{pagesInfo[router.pathname]?.title ?? ""}</Typography>
-        <Typography
-          variant="h1"
+        <Typography variant="h1" sx={{ px: { xs: "9.896vw", md: 0 }, fontSize: { xs: "20px", sm: "23px", md: "25px" } }}>
+          {pagesInfo[router.pathname]?.title ?? ""}
+        </Typography>
+        <Grid container alignItems="flex-end" height="100%">
+          <Typography
+            variant="h1"
+            sx={{
+              fontWeight: 600,
+              background: "rgba(0, 0, 0, 0.8)",
+              pl: "6.7vw",
+              pr: "9.896vw",
+              py: "5vh",
+              width: { xs: "100%", md: "max-content" },
+              mt: "auto",
+              fontSize: { xs: "20px", sm: "23px", md: "25px" }
+            }}
+          >
+            {pagesInfo[router.pathname]?.bannerText}
+          </Typography>
+        </Grid>
+
+        <Stack
+          alignItems="flex-end"
           sx={{
-            fontWeight: 600,
-            background: "rgba(0, 0, 0, 0.8)",
-            pl: 16.25,
-            pr: "9.896vw",
-            py: "5vh",
+            position: "absolute",
+            right: 0,
+            top: "25%",
             width: "max-content",
-            mt: "auto"
+            display: router.pathname === "/" ? "flex" : "none"
           }}
         >
-          {pagesInfo[router.pathname]?.bannerText}
-        </Typography>
-
-        <Stack alignItems="flex-end" sx={{ position: "absolute", right: 0, top: "25%", width: "max-content" }}>
           <TextField
             variant="standard"
             sx={{ background: "rgba(0, 0, 0, 0.9)", p: 1 }}
@@ -98,10 +115,11 @@ const PageBanner = () => {
             borderRadius: 0,
             position: "absolute",
             bottom: "20px",
-            right: 0
+            right: 0,
+            display: router.pathname === "/" ? "block" : "none"
           }}
         >
-          <Image width="25" height="25" src={chat} />
+          <Image width="25" height="25" alt="" src={chat} />
         </Button>
       </Stack>
     </Grid>
