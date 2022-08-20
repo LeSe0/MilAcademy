@@ -43,15 +43,16 @@ const PageBanner = () => {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           minHeight: "55.5vh",
+          px: { xs: 0, md: "9.896vw" },
           "& h1": {
             fontFamily: "MontserratArm"
           }
         }}
       >
-        <Typography variant="h1" sx={{ px: "9.896vw", fontSize: { xs: "20px", sm: "23px", md: "25px" } }}>
+        <Typography variant="h1" sx={{ px: { xs: "9.896vw", md: 0 }, fontSize: { xs: "20px", sm: "23px", md: "25px" } }}>
           {pagesInfo[router.pathname]?.title ?? ""}
         </Typography>
-        <Grid container justifyContent="center" alignItems="flex-end" height="100%">
+        <Grid container alignItems="flex-end" height="100%">
           <Typography
             variant="h1"
             sx={{
@@ -118,7 +119,7 @@ const PageBanner = () => {
             display: router.pathname === "/" ? "block" : "none"
           }}
         >
-          <Image width="25" height="25" src={chat} />
+          <Image width="25" height="25" alt="" src={chat} />
         </Button>
       </Stack>
     </Grid>
