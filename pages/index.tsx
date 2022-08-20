@@ -24,7 +24,7 @@ const Home: NextPage = () => {
       </Typography>
       <Grid container spacing={2.5}>
         {MainPartsData.map(({ image, title, content }, i) => (
-          <Grid item xs={4}>
+          <Grid item xs={4} key={`mainPage-info_${title}-content_${content}`}>
             <Image src={image} alt="" />
             <Typography variant="h2" fontFamily="MontserratArm" color="#000" textAlign="center">
               {title}

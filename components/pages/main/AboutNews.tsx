@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 // images
 import AboutNewsImage from "public/images/AboutNews.png";
@@ -9,6 +10,8 @@ import { AboutNewsData } from "src/constant/data";
 import Image from "next/image";
 
 export default function AboutNews() {
+  const router = useRouter();
+
   return (
     <Grid container>
       <Grid item width="100%">
@@ -19,9 +22,11 @@ export default function AboutNews() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             width: "100%",
-            height: "500px"
+            height: "500px",
+            cursor: "pointer"
           }}
           alignItems="flex-end"
+          onClick={() => router.push("/story")}
         >
           <Typography
             variant="body1"
@@ -42,7 +47,7 @@ export default function AboutNews() {
         <Grid item width="100%" mt={7.5}>
           <Grid container rowSpacing={2.5}>
             {AboutNewsData.map(({ image1, image2 }, i) => (
-              <Grid item width="100%">
+              <Grid item width="100%" key={`main_page-info-item_${i}`}>
                 <Grid
                   container
                   key={"AboutNewsData_" + i}
@@ -51,12 +56,12 @@ export default function AboutNews() {
                 >
                   <Grid item xs={5}>
                     <Box position="relative" height="230px">
-                      <Image src={image1} layout="fill" />
+                      <Image src={image1} alt="" layout="fill" />
                     </Box>
                   </Grid>
                   <Grid item xs={7}>
                     <Box position="relative" height="230px">
-                      <Image src={image2} layout="fill" />
+                      <Image src={image2} alt="" layout="fill" />
                     </Box>
                   </Grid>
                 </Grid>
