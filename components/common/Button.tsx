@@ -12,8 +12,8 @@ export function ReadMoreButton({ title, path }: IReadMore) {
       sx={{
         border: 2,
         borderColor: "black",
-        width: "240px",
-        height: "80px",
+        width: { xs: "180px", sm: "240px" },
+        height: { xs: "50px", sm: "70px", lg: "80px" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

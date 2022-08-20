@@ -1,14 +1,18 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
-import mainImage from "@images/story/storyMainImage.png";
-import Image from "next/image";
 import { storyImageSlider } from "src/constant/data";
-import Slider, { Settings } from "react-slick";
+
+// images
+import mainImage from "@images/story/storyMainImage.png";
+
+// types
+import { Settings } from "react-slick";
+
+// Components
+import { Box, Stack, Typography } from "@mui/material";
 import CustomSlider from "components/common/slider/Slider";
+import Image from "next/image";
 
-type Props = {};
-
-export default function StoryPage({}: Props) {
+export default function StoryPage() {
   const customSettings: Settings = {
     arrows: true
   };

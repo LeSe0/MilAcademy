@@ -70,10 +70,10 @@ const PageBanner = () => {
               background: "rgba(0, 0, 0, 0.8)",
               pl: "6.7vw",
               pr: "9.896vw",
-              py: "5vh",
+              py: { xs: "1vh", sm: "5vh" },
               width: { xs: "100%", md: "max-content" },
               mt: "auto",
-              fontSize: { xs: "20px", sm: "23px", md: "25px" }
+              fontSize: { xs: "18px", sm: "23px", md: "25px" }
             }}
           >
             {pagesInfo[router.pathname]?.bannerText}
