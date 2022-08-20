@@ -4,27 +4,37 @@ import { useRouter } from "next/router";
 import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 
 import back from "@images/home-back.png";
+import story from "@images/story/storyBanner.png";
 import chat from "@images/chat.svg";
 
 import SearchIcon from "@mui/icons-material/Search";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
-const pagesInfo: { [key: string]: { title?: string; bannerText: string } } = {
+const pagesInfo: { [key: string]: { title?: string; bannerText: string; backgroundImg: StaticImageData } } = {
   "/": {
     title: "ՀՀ ՊՆ Վ. ՍԱՐԳՍՅԱՆԻ ԱՆՎԱՆ ՌԱԶՄԱԿԱՆ ՀԱՄԱԼՍԱՐԱՆ",
-    bannerText: "Գիտելիքը Ձեզ, նվաճումները Հայրենիքին․․․"
+    bannerText: "Գիտելիքը Ձեզ, նվաճումները Հայրենիքին․․․",
+    backgroundImg: back
   },
   "/news": {
-    bannerText: "Նորություններ"
+    bannerText: "Նորություններ",
+    backgroundImg: back
   },
   "/eductaion": {
-    bannerText: "Կրթություն"
+    bannerText: "Կրթություն",
+    backgroundImg: back
   },
   "/daily_lif": {
-    bannerText: "Մեր առօրյան"
+    bannerText: "Մեր առօրյան",
+    backgroundImg: back
   },
   "/about_us": {
-    bannerText: "Մեր մասին"
+    bannerText: "Մեր մասին",
+    backgroundImg: back
+  },
+  "/story": {
+    bannerText: "Պատամական ակնարկ",
+    backgroundImg: story
   }
 };
 
@@ -36,7 +46,7 @@ const PageBanner = () => {
         pt={5}
         alignContent="space-between"
         sx={{
-          backgroundImage: `url(${back.src})`,
+          backgroundImage: `url(${pagesInfo[router.pathname].backgroundImg.src})`,
           width: "100%",
           overflow: "hidden",
           position: "relative",
