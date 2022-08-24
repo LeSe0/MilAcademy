@@ -3,8 +3,6 @@ import type { AppProps } from "next/app";
 
 // styles
 import "../styles/globals.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 //mui
 import { ThemeProvider } from "@mui/material";

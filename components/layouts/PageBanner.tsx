@@ -5,36 +5,45 @@ import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 
 import back from "@images/home-back.png";
 import story from "@images/story/storyBanner.png";
+import storyMobile from "@images/story/storyMobileBackground.jpg";
 import chat from "@images/chat.svg";
 
 import SearchIcon from "@mui/icons-material/Search";
 import Image, { StaticImageData } from "next/image";
 
-const pagesInfo: { [key: string]: { title?: string; bannerText: string; backgroundImg: StaticImageData } } = {
+const pagesInfo: {
+  [key: string]: { title?: string; bannerText: string; backgroundImg: StaticImageData; mobileBackground: StaticImageData };
+} = {
   "/": {
     title: "ՀՀ ՊՆ Վ. ՍԱՐԳՍՅԱՆԻ ԱՆՎԱՆ ՌԱԶՄԱԿԱՆ ՀԱՄԱԼՍԱՐԱՆ",
     bannerText: "Գիտելիքը Ձեզ, նվաճումները Հայրենիքին․․․",
-    backgroundImg: back
+    backgroundImg: back,
+    mobileBackground: back
   },
   "/news": {
     bannerText: "Նորություններ",
-    backgroundImg: back
+    backgroundImg: back,
+    mobileBackground: back
   },
   "/eductaion": {
     bannerText: "Կրթություն",
-    backgroundImg: back
+    backgroundImg: back,
+    mobileBackground: back
   },
   "/daily_lif": {
     bannerText: "Մեր առօրյան",
-    backgroundImg: back
+    backgroundImg: back,
+    mobileBackground: back
   },
   "/about_us": {
     bannerText: "Մեր մասին",
-    backgroundImg: back
+    backgroundImg: back,
+    mobileBackground: back
   },
   "/story": {
     bannerText: "Պատամական ակնարկ",
-    backgroundImg: story
+    backgroundImg: story,
+    mobileBackground: storyMobile
   }
 };
 
@@ -46,11 +55,15 @@ const PageBanner = () => {
         pt={5}
         alignContent="space-between"
         sx={{
-          backgroundImage: `url(${pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src})`,
+          backgroundImage: {
+            xs: `url(${pagesInfo[router.pathname]?.mobileBackground?.src ?? back.src})`,
+            sm: `url(${pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src})`
+          },
           width: "100%",
           overflow: "hidden",
           position: "relative",
           backgroundRepeat: "no-repeat",
+          backgroundPosition: { xs: "unset", sm: "center" },
           backgroundSize: "cover",
           minHeight: { xs: "30vh", md: "55.5vh" },
           px: { xs: 0, md: "9.896vw" },
