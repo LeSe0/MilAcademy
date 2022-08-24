@@ -1,22 +1,12 @@
 import React from "react";
-import { storyImageSlider } from "src/constant/data";
 
 // images
 import mainImage from "@images/story/storyMainImage.png";
 
-// types
-import { Settings } from "react-slick";
-
 // Components
 import { Box, Stack, Typography } from "@mui/material";
-import CustomSlider from "components/common/slider/Slider";
-import Image from "next/image";
 
 export default function StoryPage() {
-  const customSettings: Settings = {
-    arrows: true
-  };
-
   return (
     <Stack>
       <Stack px="10vw" my="100px" spacing={6}>
@@ -64,27 +54,6 @@ export default function StoryPage() {
           նախարարության «Վազգեն Սարգսյանի անվան ռազմական համալսարան» պետական հիմնարկ:
         </Typography>
       </Stack>
-      <Box
-        position="relative"
-        px={{ xs: 0, sm: "10vw" }}
-        mb="100px"
-        sx={{
-          pb: { xs: "100px", md: 0 },
-          "& .slick-slider": {
-            px: { xs: 0, md: "120px" }
-          }
-        }}
-      >
-        <CustomSlider {...customSettings}>
-          {storyImageSlider.map((el, i) => {
-            return (
-              <Box display="flex !important" justifyContent="center" key={i}>
-                <Image src={el} alt="" />
-              </Box>
-            );
-          })}
-        </CustomSlider>
-      </Box>
     </Stack>
   );
 }

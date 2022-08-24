@@ -17,7 +17,7 @@ const Header = () => {
     <Grid
       component="header"
       container
-      bgcolor={theme => theme.palette.primary.main}
+      bgcolor="primary.main"
       alignItems="center"
       px={{ xs: "10vw", lg: "9vw", xl: "10vw" }}
       py={2}

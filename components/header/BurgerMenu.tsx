@@ -8,7 +8,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 export default function BurgerMenu() {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const router = useRouter();
 
   const OpenDrawer = useCallback(() => {
     setOpenDrawer(true);
