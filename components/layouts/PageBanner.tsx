@@ -1,14 +1,16 @@
 import React, { memo } from "react";
 import { useRouter } from "next/router";
 
-import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
-
+// images
 import back from "@images/home-back.png";
+import newsBanner from "@images/news/newsBackground.png";
 import story from "@images/story/storyBanner.png";
 import storyMobile from "@images/story/storyMobileBackground.jpg";
 import chat from "@images/chat.svg";
-
 import SearchIcon from "@mui/icons-material/Search";
+
+// components
+import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 
 const pagesInfo: {
@@ -22,8 +24,8 @@ const pagesInfo: {
   },
   "/news": {
     bannerText: "Նորություններ",
-    backgroundImg: back,
-    mobileBackground: back
+    backgroundImg: newsBanner,
+    mobileBackground: newsBanner
   },
   "/eductaion": {
     bannerText: "Կրթություն",
