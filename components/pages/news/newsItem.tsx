@@ -4,7 +4,7 @@ import React from "react";
 import { StaticImageData } from "next/image";
 
 // Components
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import ClampLines from "react-clamp-lines";
 import { useRouter } from "next/router";
@@ -18,6 +18,7 @@ interface Props {
 
 export default function NewsItem({ image, content, date, path }: Props) {
   const router = useRouter();
+  const smallQuery = useMediaQuery("(min-width: 400px)")
 
   return (
     <Grid container height={{ xs: "auto", md: "400px" }} flexDirection={{ xs: "column", md: "row" }}>
@@ -53,7 +54,7 @@ export default function NewsItem({ image, content, date, path }: Props) {
               }
             }}
           >
-            <ClampLines text={content} lines={7} ellipsis="..." buttons={false} innerElement="p" id="newsItemLineClamp" />
+            <ClampLines text={content} lines={smallQuery ? 7 : 3} ellipsis="..." buttons={false} innerElement="p" id="newsItemLineClamp" />
           </Box>
           <Grid container justifyContent="space-between">
             <Grid item>
