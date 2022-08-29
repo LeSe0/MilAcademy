@@ -1,24 +1,22 @@
 import React from "react";
-
-// types
-import { StaticImageData } from "next/image";
+import { getImage } from "providers/hooks/common";
+import { useRouter } from "next/router";
 
 // Components
 import { Box, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import ClampLines from "react-clamp-lines";
-import { useRouter } from "next/router";
 
 interface Props {
-  image: StaticImageData;
-  content: string;
+  image: string;
+  description: string;
   date: string;
-  path: string;
+  id: number;
 }
 
-export default function NewsItem({ image, content, date, path }: Props) {
+export default function NewsItem({ image, description, date, id }: Props) {
   const router = useRouter();
-  const smallQuery = useMediaQuery("(min-width: 400px)")
+  const smallQuery = useMediaQuery("(min-width: 400px)");
 
   return (
     <Grid container height={{ xs: "auto", md: "400px" }} flexDirection={{ xs: "column", md: "row" }}>
@@ -27,12 +25,12 @@ export default function NewsItem({ image, content, date, path }: Props) {
         xs={12}
         md={4}
         sx={{
-          backgroundImage: `url(${image.src})`,
+          backgroundImage: `url(${getImage(image)})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: { xs: "300px", md: "auto" }
         }}
-        onClick={() => router.push(path)}
+        onClick={() => router.push(`news/${id}`)}
       />
       <Grid
         item
@@ -40,25 +38,26 @@ export default function NewsItem({ image, content, date, path }: Props) {
         md={8}
         sx={{
           backgroundColor: "rgba(0, 0, 0, 0.8)",
-          p: { xs: "10px 30px", sm: "20px 60px", md: "40px 130px" }
+          p: "3.7vh 6.7vw"
         }}
       >
         <Stack justifyContent="space-between" height="100%">
-          <Box
+          <Typography
+            variant="h3"
             sx={{
-              "& p": {
-                fontSize: { xs: 14, sm: 16, xl: 20 },
-                fontWeight: 400,
-                lineHeight: "30px",
-                color: "white"
-              }
+              maxWidth: "100%",
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: smallQuery ? 7 : 3,
+              overflow: "hidden",
+              textOverflow: "ellipsis"
             }}
           >
-            <ClampLines text={content} lines={smallQuery ? 7 : 3} ellipsis="..." buttons={false} innerElement="p" id="newsItemLineClamp" />
-          </Box>
+            {description}
+          </Typography>
           <Grid container justifyContent="space-between">
             <Grid item>
-              <Link href={path}>
+              <Link href={`news/${id}`}>
                 <Typography sx={{ cursor: "pointer" }}>Ավելին</Typography>
               </Link>
             </Grid>

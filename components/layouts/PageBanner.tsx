@@ -51,6 +51,7 @@ const pagesInfo: {
 
 const PageBanner = () => {
   const router = useRouter();
+
   return (
     <Grid container>
       <Stack
