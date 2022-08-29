@@ -5,6 +5,7 @@ import { Button, Grid, Stack, TextField, Typography } from "@mui/material";
 
 import back from "@images/home-back.png";
 import story from "@images/story/storyBanner.png";
+import education from "@images/education/pageBanner.png";
 import storyMobile from "@images/story/storyMobileBackground.jpg";
 import chat from "@images/chat.svg";
 
@@ -25,10 +26,10 @@ const pagesInfo: {
     backgroundImg: back,
     mobileBackground: back
   },
-  "/eductaion": {
+  "/education": {
     bannerText: "Կրթություն",
-    backgroundImg: back,
-    mobileBackground: back
+    backgroundImg: education,
+    mobileBackground: education
   },
   "/daily_lif": {
     bannerText: "Մեր առօրյան",
