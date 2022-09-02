@@ -70,12 +70,13 @@ const PageBanner = () => {
         pt={5}
         alignContent="space-between"
         sx={{
-          backgroundImage: queryBanner
-            ? `url(${getImage(queryBanner.images[0])})`
-            : {
-                xs: `url(${pagesInfo[router.pathname]?.mobileBackground?.src ?? back.src})`,
-                sm: `url(${pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src})`
-              },
+          backgroundImage:
+            router.query.id && queryBanner
+              ? `url(${getImage(queryBanner.images[0])})`
+              : {
+                  xs: `url(${pagesInfo[router.pathname]?.mobileBackground?.src ?? back.src})`,
+                  sm: `url(${pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src})`
+                },
           width: "100%",
           overflow: "hidden",
           position: "relative",
@@ -106,7 +107,7 @@ const PageBanner = () => {
               fontSize: { xs: "18px", sm: "23px", md: "25px" }
             }}
           >
-            {queryBanner ? queryBanner?.date : pagesInfo[router.pathname]?.bannerText}
+            {router.query.id && queryBanner ? queryBanner?.date : pagesInfo[router.pathname]?.bannerText}
           </Typography>
         </Grid>
 
