@@ -26,7 +26,7 @@ export default function MobileDrawer({ openDrawer, CloseDrawer }: Props) {
       <Stack
         sx={{
           backgroundColor: "primary.main",
-          height: "100%",
+          height: "unset",
           py: "20px"
         }}
         alignItems="flex-start"

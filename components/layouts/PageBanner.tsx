@@ -1,5 +1,10 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Api from "api";
+import { getImage } from "providers/hooks/common";
+
+// types
+import { INewsById } from "types/types";
 
 // images
 import back from "@images/home-back.png";
@@ -51,6 +56,13 @@ const pagesInfo: {
 
 const PageBanner = () => {
   const router = useRouter();
+  const [queryBanner, setQueryBanner] = useState<INewsById>();
+
+  useEffect(() => {
+    if (router.query.id) {
+      Api.news.GetNewsByID(router.query.id).then(rsp => setQueryBanner(rsp.data));
+    }
+  }, [router]);
 
   return (
     <Grid container>
@@ -58,10 +70,12 @@ const PageBanner = () => {
         pt={5}
         alignContent="space-between"
         sx={{
-          backgroundImage: {
-            xs: `url(${pagesInfo[router.pathname]?.mobileBackground?.src ?? back.src})`,
-            sm: `url(${pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src})`
-          },
+          backgroundImage: queryBanner
+            ? `url(${getImage(queryBanner.images[0])})`
+            : {
+                xs: `url(${pagesInfo[router.pathname]?.mobileBackground?.src ?? back.src})`,
+                sm: `url(${pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src})`
+              },
           width: "100%",
           overflow: "hidden",
           position: "relative",
@@ -92,7 +106,7 @@ const PageBanner = () => {
               fontSize: { xs: "18px", sm: "23px", md: "25px" }
             }}
           >
-            {pagesInfo[router.pathname]?.bannerText}
+            {queryBanner ? queryBanner?.date : pagesInfo[router.pathname]?.bannerText}
           </Typography>
         </Grid>
 
