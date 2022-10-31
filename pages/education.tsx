@@ -2,7 +2,7 @@ import React, { SyntheticEvent, useCallback, useState } from "react";
 
 // Components
 import { TabPanel, TabList, TabContext } from "@mui/lab";
-import { Stack, Typography, Tab, Tabs, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import { Stack, Typography, Tab, Tabs, Accordion, AccordionSummary, AccordionDetails, Box } from "@mui/material";
 import { milEducation } from "src/constant/data";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -83,7 +83,28 @@ export default function education() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography component="div" color="black" dangerouslySetInnerHTML={{ __html: el.content }}></Typography>
+                {el.list ? (
+                  el.list.map(listItem => {
+                    return (
+                      <Box>
+                        <Typography component="p" color="black" dangerouslySetInnerHTML={{ __html: listItem.info ?? "" }} />
+                        <Typography component="p" color="black" fontWeight={900}>
+                          {listItem.listTitle}
+                        </Typography>
+                        <ul>
+                          {listItem.listItems.map(item => (
+                            <li style={{ color: "black" }}>{item}</li>
+                          ))}
+                        </ul>
+                        {listItem.footer && (
+                          <Typography component="div" color="black" dangerouslySetInnerHTML={{ __html: listItem.footer }} />
+                        )}
+                      </Box>
+                    );
+                  })
+                ) : (
+                  <Typography component="div" color="black" dangerouslySetInnerHTML={{ __html: el?.content ?? "" }} />
+                )}
               </AccordionDetails>
             </Accordion>
           ))}
