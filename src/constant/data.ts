@@ -21,6 +21,11 @@ export interface IMainPartData {
   path: string;
 }
 
+export interface IMilEducation {
+  title: string;
+  content: string;
+}
+
 export const AboutNewsData: IAboutNewsData[] = [
   {
     image1: AboutNews1,
@@ -57,5 +62,29 @@ export const MainPartsData: IMainPartData[] = [
     - Ապագայի պլանների և բարեփոխումների
     հատված`,
     path: "/about"
+  }
+];
+
+export const milEducation: IMilEducation[] = [
+  {
+    title: "Հնգամյա Սպայական Դասեր",
+    content: `Հինգամսյա սպայական դասընթացներ՝ բարձրագույն ուսումնական հաստատություններն ավարտած, զինված ուժերի ենթասպայական և պայմանագրային կազմի համար:<br />
+    <strong>Մասնագիտությունները՝</strong> <br />
+    <ul>
+      <li>մոտոհրաձգային ստորաբաժանումների կառավարում,</li>
+      <li>հրետանային ստորաբաժանումների կառավարում,</li>
+      <li>տանկային ստորաբաժանումների կառավարում:</li>
+    </ul>
+    <strong>Ուսման տևողությունը</strong> հինգ ամիս է, անվճար:`
+  },
+  {
+    title: "Մեկամյա սպայական դասընթացներ",
+    content: `Մեկամյա սպայական դասընթացներ՝ քաղաքացիական բուհերի շրջանավարտների համար:<br />
+      <strong>Մասնագիտությունները՝</strong><br />
+    <ul>
+      <li>մոտոհրաձգային ստորաբաժանումների կառավարում,</li>
+      <li>հրետանային ստորաբաժանումների կառավարում,</li>
+    </ul>
+    <strong>Ուսման տևողությունը</strong> 1 տարի է, անվճար:`
   }
 ];
