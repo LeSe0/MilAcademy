@@ -1,10 +1,10 @@
 import React, { SyntheticEvent, useCallback, useState } from "react";
+import { milEducation, education as educationData } from "src/constant/data";
 
 // Components
 import { TabPanel, TabList, TabContext } from "@mui/lab";
-import { Stack, Typography, Tab, Tabs, Accordion, AccordionSummary, AccordionDetails, Box } from "@mui/material";
-import { milEducation } from "src/constant/data";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Stack, Typography, Tab } from "@mui/material";
+import EducationAccordion from "components/pages/education/EducationAccordion";
 
 export default function education() {
   const [activeTab, setActiveTab] = useState("1");
@@ -76,46 +76,23 @@ export default function education() {
           }}
         >
           {milEducation.map(el => (
-            <Accordion disableGutters sx={{ p: "10px" }}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography color="black" variant="h3" fontWeight="bold">
-                  {el.title}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                {el.list ? (
-                  el.list.map(listItem => {
-                    return (
-                      <Box>
-                        <Typography component="p" color="black" dangerouslySetInnerHTML={{ __html: listItem.info ?? "" }} />
-                        <Typography component="p" color="black" fontWeight={900}>
-                          {listItem.listTitle}
-                        </Typography>
-                        <ul>
-                          {listItem.listItems.map(item => (
-                            <li style={{ color: "black" }}>{item}</li>
-                          ))}
-                        </ul>
-                        {listItem.footer && (
-                          <Typography component="div" color="black" dangerouslySetInnerHTML={{ __html: listItem.footer }} />
-                        )}
-                      </Box>
-                    );
-                  })
-                ) : (
-                  <Typography component="div" color="black" dangerouslySetInnerHTML={{ __html: el?.content ?? "" }} />
-                )}
-              </AccordionDetails>
-            </Accordion>
+            <EducationAccordion el={el} />
           ))}
         </TabPanel>
         <TabPanel
           value="2"
           sx={{
             width: "100%",
-            px: "0"
+            px: "0",
+            "& .MuiAccordion-root:not(:first-child)": {
+              mt: "20px"
+            }
           }}
-        ></TabPanel>
+        >
+          {educationData.map(el => (
+            <EducationAccordion el={el} />
+          ))}
+        </TabPanel>
         <TabPanel
           value="3"
           sx={{
