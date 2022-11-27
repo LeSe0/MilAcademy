@@ -10,6 +10,7 @@ import { INewsById } from "types/types";
 import back from "@images/home-back.png";
 import newsBanner from "@images/news/newsBackground.png";
 import story from "@images/story/storyBanner.png";
+import education from "@images/education/pageBanner.png";
 import storyMobile from "@images/story/storyMobileBackground.jpg";
 import chat from "@images/chat.svg";
 import SearchIcon from "@mui/icons-material/Search";
@@ -32,10 +33,10 @@ const pagesInfo: {
     backgroundImg: newsBanner,
     mobileBackground: newsBanner
   },
-  "/eductaion": {
+  "/education": {
     bannerText: "Կրթություն",
-    backgroundImg: back,
-    mobileBackground: back
+    backgroundImg: education,
+    mobileBackground: education
   },
   "/daily_lif": {
     bannerText: "Մեր առօրյան",

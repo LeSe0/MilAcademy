@@ -6,7 +6,6 @@ import { INewsItem } from "types/types";
 
 // Components
 import { Box, Grid, Typography } from "@mui/material";
-import LinesEllipsis from "react-lines-ellipsis";
 import Link from "next/link";
 
 export default function NewsList() {
@@ -56,7 +55,7 @@ export default function NewsList() {
         >
           Լրահոս
         </Typography>
-        {news.map(({ id, date, description }) => (
+        {news?.map(({ id, date, description }) => (
           <Grid item key={"Main-page_news-item_" + id}>
             <Link href={`/news/${id}`}>
               <Box sx={{ cursor: "pointer" }}>

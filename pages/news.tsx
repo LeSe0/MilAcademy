@@ -15,7 +15,7 @@ interface Props {
 export default function news({ news }: Props) {
   return (
     <Stack px={{ xs: "3vw", sm: "10vw" }} spacing={7.5} my={{ xs: "50px", sm: "100px" }}>
-      {news.map(({ date, image, description, id }) => (
+      {news?.map(({ date, image, description, id }) => (
         <NewsItem date={date} image={image} id={id} description={description} key={`news-page_item-${date}_${id}`} />
       ))}
     </Stack>
