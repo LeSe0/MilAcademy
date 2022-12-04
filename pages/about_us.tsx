@@ -22,7 +22,11 @@ export default function about_us() {
       sx={{
         px: "10vw",
         alignItems: "center",
-        pt: "60px"
+        pt: "60px",
+        "& a": {
+          textDecoration: "underline",
+          fontWeight: "bold"
+        }
       }}
     >
       <TabContext value={activeTab}>
