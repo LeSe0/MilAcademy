@@ -5,6 +5,7 @@ import { milEducation, education as educationData } from "src/constant/data";
 import { TabPanel, TabList, TabContext } from "@mui/lab";
 import { Stack, Typography, Tab } from "@mui/material";
 import EducationAccordion from "components/pages/education/EducationAccordion";
+import TabListStyled from "components/common/TabListStyled";
 
 export default function education() {
   const [activeTab, setActiveTab] = useState("1");
@@ -25,46 +26,7 @@ export default function education() {
       }}
     >
       <TabContext value={activeTab}>
-        <TabList
-          onChange={handleChange}
-          sx={{
-            width: "100%",
-            "& .MuiTabs-flexContainer": {
-              justifyContent: "center"
-            },
-            "& .MuiTab-root": {
-              width: `calc(100%/3)`,
-              px: "0",
-              py: "24px"
-            },
-            "& .MuiTab-root:first-of-type, .MuiTab-root:last-of-type": {
-              borderLeft: "2px solid",
-              borderRight: "2px solid"
-            },
-            "& .Mui-selected": {
-              color: "black !important",
-              background: "#F3F3F3",
-              borderBottom: "none"
-            }
-          }}
-          TabIndicatorProps={{
-            sx: {
-              display: "none"
-            }
-          }}
-        >
-          {["Ռազմական կրթություն", "Համալսարանական կրթություն", "Դիմորդ"].map((el, i) => (
-            <Tab
-              key={`education-tab_${i + 1}`}
-              label={
-                <Typography key={`education-tab_${i}`} variant="h3" color="black">
-                  {el}
-                </Typography>
-              }
-              value={`${i + 1}`}
-            />
-          ))}
-        </TabList>
+        <TabListStyled handleChange={handleChange} tabs={["Ռազմական կրթություն", "Համալսարանական կրթություն", "Դիմորդ"]} />
         <TabPanel
           value="1"
           sx={{

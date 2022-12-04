@@ -39,7 +39,7 @@ export default function initTypography(theme: Theme): Typography {
       [theme.breakpoints.down("xl")]: {
         fontSize: 16
       },
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("md")]: {
         fontSize: 14
       }
     },
