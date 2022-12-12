@@ -19,6 +19,7 @@ export default function education() {
 
   return (
     <Stack
+      className="list-container"
       sx={{
         px: "10vw",
         alignItems: "center",

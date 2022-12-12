@@ -20,6 +20,7 @@ export default function about_us() {
 
   return (
     <Stack
+      className="list-container"
       sx={{
         px: "10vw",
         alignItems: "center",
