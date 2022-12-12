@@ -9,7 +9,10 @@ export default function initTypography(theme: Theme): Typography {
       fontSize: 30,
       fontWeight: 600,
       color: theme.palette.text.primary,
-      lineHeight: 45,
+      lineHeight: "45px",
+      [theme.breakpoints.down("xl")]: {
+        fontSize: 26
+      },
       [theme.breakpoints.down("sm")]: {
         fontSize: 24
       }
@@ -18,26 +21,33 @@ export default function initTypography(theme: Theme): Typography {
       ...theme.typography.h2,
       fontSize: 24,
       fontWeight: 700,
-      lineHeight: 36,
+      lineHeight: 4.5,
       color: theme.palette.text.primary,
-      [theme.breakpoints.down("sm")]: {
+      [theme.breakpoints.down("xl")]: {
         fontSize: 20
+      },
+      [theme.breakpoints.down("sm")]: {
+        fontSize: 18
       }
     },
     h3: {
       ...theme.typography.h3,
       fontSize: 20,
       fontWeight: 400,
-      lineHeight: 30,
+      lineHeight: "30px",
       color: theme.palette.text.primary,
-      [theme.breakpoints.down("sm")]: {
-        fontSize: 28
+      [theme.breakpoints.down("xl")]: {
+        fontSize: 16
+      },
+      [theme.breakpoints.down("md")]: {
+        fontSize: 14
       }
     },
     body1: {
       ...theme.typography.body1,
       fontSize: 16,
-      fontWeight: 500,
+      fontWeight: 400,
+      lineHeight: 3,
       color: theme.palette.text.primary,
       [theme.breakpoints.down("sm")]: {
         fontSize: 14
