@@ -21,16 +21,18 @@ export default function EducationAccordion({ el }: Props) {
       </AccordionSummary>
       <AccordionDetails>
         {el.list ? (
-          el.list.map(listItem => {
+          el.list.map((listItem, i) => {
             return (
-              <Box>
+              <Box key={`education-accordion-list-${listItem.listItems.length}-index_${i}`}>
                 <Typography component="p" color="black" dangerouslySetInnerHTML={{ __html: listItem.info ?? "" }} />
                 <Typography component="p" color="black" fontWeight={900}>
                   {listItem.listTitle}
                 </Typography>
                 <ul>
-                  {listItem.listItems.map(item => (
-                    <li style={{ color: "black" }}>{item}</li>
+                  {listItem.listItems.map((item, index) => (
+                    <li style={{ color: "black" }} key={`list-item-li_${item}-index_${index}`}>
+                      {item}
+                    </li>
                   ))}
                 </ul>
                 {listItem.footer && (

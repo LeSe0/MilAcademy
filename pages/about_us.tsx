@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { SyntheticEvent, useCallback, useState } from "react";
 import { education as educationData } from "src/constant/data";
 
@@ -39,8 +40,8 @@ export default function about_us() {
             }
           }}
         >
-          {faq.map(el => (
-            <EducationAccordion el={el} />
+          {faq.map((el, i) => (
+            <EducationAccordion el={el} key={`accordion-item_${el.title}-index_${i}`} />
           ))}
         </TabPanel>
         <TabPanel
@@ -53,8 +54,8 @@ export default function about_us() {
             }
           }}
         >
-          {educationData.map(el => (
-            <EducationAccordion el={el} />
+          {educationData.map((el, i) => (
+            <EducationAccordion el={el} key={`accordion-item-education_${el.title}-index_${i}`} />
           ))}
         </TabPanel>
         <TabPanel
