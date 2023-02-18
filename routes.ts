@@ -22,14 +22,10 @@ export const navbar: INavBar[] = [
   },
   {
     title: "Գիտական հետազոտություններ",
-    path: "/"
+    path: "/science"
   },
   {
     title: `Մեր մասին`,
     path: "/about_us"
-  },
-  {
-    title: "Համագործակցություն",
-    path: "/"
   }
 ];
