@@ -22,7 +22,7 @@ export default function Navbar({ navbar }: Props) {
             variant="body1"
             sx={{
               fontWeight: router.pathname === el.path ? "bold" : 400,
-              fontSize: "0.8vw",
+              fontSize: "0.75vw",
               fontFamily: "MontserratArm",
               transition: "0.5s",
               cursor: "pointer"
