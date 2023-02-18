@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { SyntheticEvent, useCallback, useState } from "react";
 import { milEducation, education as educationData } from "src/constant/data";
 
@@ -38,8 +39,8 @@ export default function education() {
             }
           }}
         >
-          {milEducation.map(el => (
-            <EducationAccordion el={el} />
+          {milEducation.map((el, i) => (
+            <EducationAccordion el={el} key={`mil-info-accordion-item_${el.title}-index_${i}`} />
           ))}
         </TabPanel>
         <TabPanel
@@ -52,8 +53,8 @@ export default function education() {
             }
           }}
         >
-          {educationData.map(el => (
-            <EducationAccordion el={el} />
+          {educationData.map((el, i) => (
+            <EducationAccordion el={el} key={`mil-accordion-item_${el.title}-index_${i}`} />
           ))}
         </TabPanel>
         <TabPanel
