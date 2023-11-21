@@ -25,7 +25,7 @@ const Header = () => {
       justifyContent={{ xs: "space-between", lg: "unset" }}
     >
       <Link href="/">
-        <Image src={logo} alt="logo icon" />
+        <Image src={logo} alt="logo icon" width={120} height={120} objectFit="cover" />
       </Link>
       <Hidden lgUp>
         <BurgerMenu />

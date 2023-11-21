@@ -23,7 +23,7 @@ const pagesInfo: {
   [key: string]: { title?: string; bannerText: string; backgroundImg: StaticImageData; mobileBackground: StaticImageData };
 } = {
   "/": {
-    title: "ՀՀ ՊՆ Վ. ՍԱՐԳՍՅԱՆԻ ԱՆՎԱՆ ՌԱԶՄԱԿԱՆ ՀԱՄԱԼՍԱՐԱՆ",
+    title: "ՀՀ ՊՆ Վ. ՍԱՐԳՍՅԱՆԻ ԱՆՎԱՆ ՌԱԶՄԱԿԱՆ ԱԿԱԴԵՄԻԱ",
     bannerText: "Գիտելիքը Ձեզ, նվաճումները Հայրենիքին․․․",
     backgroundImg: back,
     mobileBackground: back
