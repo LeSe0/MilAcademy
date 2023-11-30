@@ -8,6 +8,7 @@ import { Stack } from "@mui/material";
 import EducationAccordion from "components/pages/education/EducationAccordion";
 import { faq } from "src/constant/about_us_data";
 import TabListStyled from "components/common/TabListStyled";
+import StoryPage from "components/pages/story/story";
 
 export default function about_us() {
   const [activeTab, setActiveTab] = useState("1");
@@ -64,7 +65,9 @@ export default function about_us() {
             width: "100%",
             px: "0"
           }}
-        ></TabPanel>
+        >
+          <StoryPage />
+        </TabPanel>
       </TabContext>
     </Stack>
   );
