@@ -12,6 +12,6 @@ const nextConfig = {
   images: {
     domains: imagesUrl
   }
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

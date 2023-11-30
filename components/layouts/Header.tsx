@@ -1,7 +1,7 @@
 import React from "react";
 
 //components
-import { Grid, Hidden } from "@mui/material";
+import { Grid, Box, Hidden } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -20,12 +20,19 @@ const Header = () => {
       bgcolor="primary.main"
       alignItems="center"
       px={{ xs: "10vw", lg: "9vw", xl: "10vw" }}
-      py={2}
       columnGap="5.5vw"
       justifyContent={{ xs: "space-between", lg: "unset" }}
     >
       <Link href="/">
-        <Image src={logo} alt="logo icon" width={120} height={120} objectFit="cover" />
+        <Box
+          sx={{
+            width: "100px",
+            aspectRatio: "1/1",
+            position: "relative"
+          }}
+        >
+          <Image src={logo} alt="logo icon" fill objectFit="cover" />
+        </Box>
       </Link>
       <Hidden lgUp>
         <BurgerMenu />

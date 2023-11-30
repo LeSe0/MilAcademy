@@ -22,7 +22,7 @@ export default function AboutNews() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             width: "100%",
-            height: "500px",
+            aspectRatio: "2/1.1",
             cursor: "pointer"
           }}
           alignItems="flex-end"
@@ -55,13 +55,13 @@ export default function AboutNews() {
                   flexDirection={i % 2 === 0 ? "row" : "row-reverse"}
                 >
                   <Grid item xs={5}>
-                    <Box position="relative" height="230px">
-                      <Image src={image1} alt="" layout="fill" />
+                    <Box position="relative" sx={{ width: "100%", height: "200px", md: { height: "150px" } }}>
+                      <Image src={image1} alt="" fill />
                     </Box>
                   </Grid>
                   <Grid item xs={7}>
-                    <Box position="relative" height="230px">
-                      <Image src={image2} alt="" layout="fill" />
+                    <Box position="relative" sx={{ width: "100%", height: "200px", md: { height: "150px" } }}>
+                      <Image src={image2} alt="" fill />
                     </Box>
                   </Grid>
                 </Grid>

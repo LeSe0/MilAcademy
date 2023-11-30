@@ -7,7 +7,9 @@ import AboutNews1 from "@images/AboutNews1.png";
 import AboutNews2 from "@images/AboutNews2.png";
 import AboutNews3 from "@images/AboutNews3.png";
 import AboutNews4 from "@images/AboutNews4.png";
-import MainPartImage from "@images/MainPartImage.png";
+import MainPartImage1 from "@images/MainPartImage1.png";
+import MainPartImage2 from "@images/MainPartImage2.jpg";
+import MainPartImage3 from "@images/MainPartImage3.jpg";
 
 export interface IAboutNewsData {
   image1: StaticImageData;
@@ -17,7 +19,6 @@ export interface IAboutNewsData {
 export interface IMainPartData {
   image: StaticImageData;
   title: string;
-  content: string;
   path: string;
 }
 
@@ -47,28 +48,18 @@ export const AboutNewsData: IAboutNewsData[] = [
 
 export const MainPartsData: IMainPartData[] = [
   {
-    image: MainPartImage,
-    title: "Մեր առօրյան",
-    content: `- Սպորտ<br />
-    - Մշակույթ և ժամանց <br />
-    - Կացության պայմաններ`,
+    image: MainPartImage1,
+    title: "Ցամաքային զորքերի ինստիտուտ",
     path: "/ourDailyLife"
   },
   {
-    image: MainPartImage,
-    title: "Կրթություն",
-    content: `- Ռազմական կրթություն <br />
-		- Համալսարանական կրթություն <br />
-		- Դիմորդ`,
+    image: MainPartImage2,
+    title: "Ռազմաօդային զորքերի ինստիտուտ",
     path: "/education"
   },
   {
-    image: MainPartImage,
-    title: "Մեր մասին",
-    content: `-  Ուսումնական ծրագրեր </br>
-    - Մասնաշենքեր </br>
-    - Ապագայի պլանների և բարեփոխումների
-    հատված`,
+    image: MainPartImage3,
+    title: "Հրամանատարաշտաբային ֆակուլտետ",
     path: "/about"
   }
 ];
