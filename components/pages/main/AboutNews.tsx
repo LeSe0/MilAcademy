@@ -26,7 +26,7 @@ export default function AboutNews() {
             cursor: "pointer"
           }}
           alignItems="flex-end"
-          onClick={() => router.push("/story")}
+          onClick={() => router.push("/about_us?part=story")}
         >
           <Typography
             variant="body1"

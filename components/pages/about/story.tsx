@@ -88,7 +88,7 @@ export default function StoryPage() {
             <SwiperSlide key={`general-info-slider-${date}-${name}`}>
               <Stack rowGap={1}>
                 <ImageWithFallback
-                  src={image || ""}
+                  src={image || generalDefaultImage}
                   fallbackSrc={generalDefaultImage}
                   alt="general image"
                   style={{ objectFit: "cover", width: "100%", height: "300px" }}

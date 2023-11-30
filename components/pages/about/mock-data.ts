@@ -46,3 +46,9 @@ export const generals: General[] = [
     date: "1994-1997"
   }
 ];
+
+export const tabs = [
+  { name: "faq", id: "1" },
+  { name: "common-info", id: "2" },
+  { name: "story", id: "3" }
+];
