@@ -59,11 +59,11 @@ export default function StoryPage() {
           modules={[Navigation]}
           breakpoints={{
             1350: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 40
             },
             1000: {
-              slidesPerView: 3,
+              slidesPerView: 2.4,
               spaceBetween: 30
             },
             900: {
