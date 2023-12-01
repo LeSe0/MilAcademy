@@ -5,15 +5,12 @@ import Api from "api";
 import { INewsItem } from "types/types";
 
 // Components
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, Stack } from "@mui/material";
 import Link from "next/link";
+import { defaultNews } from "./mock-data";
 
 export default function NewsList() {
-  const [news, setNews] = useState<INewsItem[]>([]);
-
-  useEffect(() => {
-    Api.news.GetNews().then(rsp => setNews(rsp?.data?.items));
-  }, [setNews]);
+  const [news, setNews] = useState<INewsItem[]>(defaultNews);
 
   return (
     <Box>
@@ -55,30 +52,32 @@ export default function NewsList() {
         >
           Լրահոս
         </Typography>
-        {news?.map(({ id, date, description }) => (
-          <Grid item key={"Main-page_news-item_" + id}>
-            <Link href={`/news/${id}`}>
-              <Box sx={{ cursor: "pointer" }}>
-                <Typography variant="h3" fontWeight="700">
-                  {date}
-                </Typography>
-                <Typography
-                  variant="h3"
-                  sx={{
-                    maxWidth: "100%",
-                    display: "-webkit-box",
-                    WebkitBoxOrient: "vertical",
-                    WebkitLineClamp: 3,
-                    overflow: "hidden",
-                    textOverflow: "ellipsis"
-                  }}
-                >
-                  {description}
-                </Typography>
-              </Box>
-            </Link>
-          </Grid>
-        ))}
+        <Stack rowGap={2} mt={2}>
+          {news?.map(({ id, date, description }) => (
+            <Grid item key={"Main-page_news-item_" + id}>
+              <Link href={`/news/${id}`}>
+                <Box sx={{ cursor: "pointer" }}>
+                  <Typography variant="h3" fontWeight="700">
+                    {date}
+                  </Typography>
+                  <Typography
+                    variant="h3"
+                    sx={{
+                      maxWidth: "100%",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 3,
+                      overflow: "hidden",
+                      textOverflow: "ellipsis"
+                    }}
+                  >
+                    {description}
+                  </Typography>
+                </Box>
+              </Link>
+            </Grid>
+          ))}
+        </Stack>
       </Grid>
     </Box>
   );

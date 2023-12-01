@@ -5,10 +5,12 @@ import { useRouter } from "next/router";
 // Components
 import { Box, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import Link from "next/link";
-import ClampLines from "react-clamp-lines";
+
+import type { StaticImageData } from "next/image";
+import Image from "next/image";
 
 interface Props {
-  image: string;
+  image: StaticImageData | string;
   description: string;
   date: string;
   id: number;
@@ -25,13 +27,13 @@ export default function NewsItem({ image, description, date, id }: Props) {
         xs={12}
         md={4}
         sx={{
-          backgroundImage: `url(${getImage(image)})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          position: "relative",
           minHeight: { xs: "300px", md: "auto" }
         }}
         onClick={() => router.push(`news/${id}`)}
-      />
+      >
+        <Image src={typeof image === "string" ? `url(${getImage(image)})` : image} fill alt="news-image" sizes="100%" />
+      </Grid>
       <Grid
         item
         xs={12}
