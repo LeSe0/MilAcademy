@@ -57,13 +57,13 @@ const pagesInfo: {
 
 const PageBanner = () => {
   const router = useRouter();
-  const [queryBanner, setQueryBanner] = useState<INewsById>();
+  // const [queryBanner, setQueryBanner] = useState<INewsById>();
 
-  useEffect(() => {
-    if (router.query.id) {
-      Api.news.GetNewsByID(router.query.id).then(rsp => setQueryBanner(rsp.data));
-    }
-  }, [router]);
+  // useEffect(() => {
+  //   if (router.query.id) {
+  //     Api.news.GetNewsByID(router.query.id).then(rsp => setQueryBanner(rsp.data));
+  //   }
+  // }, [router]);
 
   return (
     <Grid container>
@@ -72,12 +72,20 @@ const PageBanner = () => {
         alignContent="space-between"
         sx={{
           backgroundImage:
-            router.query.id && queryBanner
-              ? `url(${getImage(queryBanner.images[0])})`
-              : {
-                  xs: `url(${pagesInfo[router.pathname]?.mobileBackground?.src ?? back.src})`,
-                  sm: `url(${pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src})`
-                },
+            // router.query.id && queryBanner
+            // ? `url(${getImage(queryBanner.images[0])})`
+            {
+              xs: `url(${
+                router.pathname.includes("news")
+                  ? pagesInfo["/news"]?.mobileBackground?.src
+                  : pagesInfo[router.pathname]?.mobileBackground?.src ?? back.src
+              })`,
+              sm: `url(${
+                router.pathname.includes("news")
+                  ? pagesInfo["/news"]?.backgroundImg?.src
+                  : pagesInfo[router.pathname]?.backgroundImg?.src ?? back.src
+              })`
+            },
           width: "100%",
           overflow: "hidden",
           position: "relative",
@@ -92,7 +100,7 @@ const PageBanner = () => {
         }}
       >
         <Typography variant="h1" sx={{ px: { xs: "9.896vw", md: 0 }, fontSize: { xs: "20px", sm: "23px", md: "25px" } }}>
-          {pagesInfo[router.pathname]?.title ?? ""}
+          {router.pathname.includes("news") ? pagesInfo["/news"]?.title : pagesInfo[router.pathname]?.title ?? ""}
         </Typography>
         <Grid container alignItems="flex-end" height="100%">
           <Typography
@@ -108,7 +116,7 @@ const PageBanner = () => {
               fontSize: { xs: "18px", sm: "23px", md: "25px" }
             }}
           >
-            {router.query.id && queryBanner ? queryBanner?.date : pagesInfo[router.pathname]?.bannerText}
+            {router.pathname.includes("news") ? pagesInfo["/news"]?.bannerText : pagesInfo[router.pathname]?.bannerText}
           </Typography>
         </Grid>
 
