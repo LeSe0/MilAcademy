@@ -42,7 +42,7 @@ export default function EducationAccordion({ el }: Props) {
             );
           })
         ) : (
-          <Typography component="div" color="black" dangerouslySetInnerHTML={{ __html: el?.content ?? "" }} />
+          <Typography component="div" color="black" lineHeight={2} dangerouslySetInnerHTML={{ __html: el?.content ?? "" }} />
         )}
       </AccordionDetails>
     </Accordion>
