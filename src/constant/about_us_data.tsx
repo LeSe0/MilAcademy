@@ -9,7 +9,7 @@ export const faq: IMilEducation[] = [
   {
     title: "Պատիվ ունեմ",
     content:
-      "«Պատիվ ունեմ» ծրագրին ծանոթանալու համար, կարող եք ուսումնասիրել հետևյալ փաստաթուղթը։ <a download href='https://drive.google.com/file/d/1vVHBJuGPO8oGSr4nI_Uzh3RM_Cf41ba8/view?usp=sharing'>Պատիվ ունեմ</a>"
+      "«Պատիվ ունեմ» ծրագրին ծանոթանալու համար, կարող եք ուսումնասիրել հետևյալ փաստաթուղթը։ <a download target='_blank' href='https://drive.google.com/file/d/1vVHBJuGPO8oGSr4nI_Uzh3RM_Cf41ba8/view?usp=sharing'>Պատիվ ունեմ</a>"
   },
   {
     title: "Քանի՞ տարի է կրթությունը",

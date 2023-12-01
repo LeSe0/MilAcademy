@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { SyntheticEvent, useCallback, useState } from "react";
-import { milEducation, education as educationData } from "src/constant/data";
+import { milEducation, education as educationData, applicant } from "src/constant/data";
 
 // Components
 import { TabPanel, TabList, TabContext } from "@mui/lab";
@@ -28,7 +28,7 @@ export default function education() {
       }}
     >
       <TabContext value={activeTab}>
-        <TabListStyled handleChange={handleChange} tabs={["Ռազմական կրթություն", "Համալսարանական կրթություն", "Դիմորդ"]} />
+        <TabListStyled handleChange={handleChange} tabs={["Ռազմական կրթություն", "Կրթական ծրագրեր", "Դիմորդ"]} />
         <TabPanel
           value="1"
           sx={{
@@ -54,16 +54,23 @@ export default function education() {
           }}
         >
           {educationData.map((el, i) => (
-            <EducationAccordion el={el} key={`mil-accordion-item_${el.title}-index_${i}`} />
+            <EducationAccordion el={el} key={`mil-accordion-item_${el.title}-index_${i}-education`} />
           ))}
         </TabPanel>
         <TabPanel
           value="3"
           sx={{
             width: "100%",
-            px: "0"
+            px: "0",
+            "& .MuiAccordion-root:not(:first-child)": {
+              mt: "20px"
+            }
           }}
-        ></TabPanel>
+        >
+          {applicant.map((el, i) => (
+            <EducationAccordion el={el} key={`mil-accordion-item_${el.title}-index_${i}-applicant`} />
+          ))}
+        </TabPanel>
       </TabContext>
     </Stack>
   );

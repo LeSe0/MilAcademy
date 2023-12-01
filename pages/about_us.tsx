@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { education as educationData } from "src/constant/data";
+import { government } from "src/constant/data";
 import { tabs } from "components/pages/about/mock-data";
 import { faq } from "src/constant/about_us_data";
 
@@ -69,7 +69,7 @@ export default function about_us() {
             }
           }}
         >
-          {educationData.map((el, i) => (
+          {government.map((el, i) => (
             <EducationAccordion el={el} key={`accordion-item-education_${el.title}-index_${i}`} />
           ))}
         </TabPanel>

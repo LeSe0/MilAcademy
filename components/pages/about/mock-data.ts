@@ -49,6 +49,6 @@ export const generals: General[] = [
 
 export const tabs = [
   { name: "faq", id: "1" },
-  { name: "common-info", id: "2" },
+  { name: "structure", id: "2" },
   { name: "story", id: "3" }
 ];
