@@ -43,7 +43,7 @@ export default function about_us() {
       <TabContext value={activeTab}>
         <TabListStyled
           handleChange={(_, id) => handleChange(id)}
-          tabs={["Հաճախ տրվող հարցեր", "Ընդհանուր ինֆորմացիա", "Պատմական ակնարկ"]}
+          tabs={["Հաճախ տրվող հարցեր", "Կառուցվածք", "Պատմական ակնարկ"]}
         />
         <TabPanel
           value="1"

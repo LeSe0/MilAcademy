@@ -4,7 +4,7 @@ import React from "react";
 import logo from "@images/logo.svg";
 
 // Components
-import { Grid, IconButton, Link } from "@mui/material";
+import { Box, Grid, IconButton, Link } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 
@@ -17,7 +17,15 @@ export default function NavbarHeader({ CloseDrawer }: Props) {
     <Grid container justifyContent="space-between" alignItems="center" px={{ xs: "10vw", sm: "30px" }}>
       <Grid item>
         <Link href="/">
-          <Image src={logo} alt="logo icon" />
+          <Box
+            sx={{
+              width: "110px",
+              aspectRatio: "1/1",
+              position: "relative"
+            }}
+          >
+            <Image src={logo} alt="logo icon" fill objectFit="cover" />
+          </Box>
         </Link>
       </Grid>
       <Grid item>
